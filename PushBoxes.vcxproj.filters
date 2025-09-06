@@ -206,4 +206,9 @@
       <Filter>资源文件\release</Filter>
     </CopyFileToFolders>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\更新日志.md">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>

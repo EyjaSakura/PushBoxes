@@ -8,10 +8,13 @@
 Game::Game() {
 	window.create(sf::VideoMode({ 800u,600u }), cfg::GAME_TITLE);
 
-	Resources::loadAllTexture();
+	Resources::loadAboutMapTexture();
 	Resources::loadAllAudio();
+	Resources::loadVictoryScreenTexture();
+	victory_sprite = std::make_unique<sf::Sprite>(victory_tex);
+	victory_sprite->setPosition({ 0,0 });
 
-	Game::getBGM().setVolume(25);
+	Game::getBGM().setVolume(20);
 	Game::getBGM().play();
 
 	changeState(GameState::Start);
@@ -58,3 +61,5 @@ void Game::changeState(GameState nextState) {
 sf::Music Game::bgm_music;
 sf::SoundBuffer Game::warning_buffer;
 std::unique_ptr<sf::Sound> Game::warning_sound;
+std::unique_ptr<sf::Sprite> Game::victory_sprite;
+sf::Texture Game::victory_tex;

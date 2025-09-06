@@ -11,7 +11,8 @@
 
 namespace Resources {
     const sf::Font& getMainFont();
-    void loadAllTexture();
+    void loadAboutMapTexture();
     void loadAllAudio();
+    void loadVictoryScreenTexture();
 }
 

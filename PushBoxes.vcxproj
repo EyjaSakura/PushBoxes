@@ -223,6 +223,9 @@
     <ClInclude Include="src\ui\Button.h" />
     <ClInclude Include="src\utils\pathFinding\FindPath.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\更新日志.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

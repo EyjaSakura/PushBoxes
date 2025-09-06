@@ -11,7 +11,7 @@ const sf::Font& Resources::getMainFont() {
     return font;
 }
 
-void Resources::loadAllTexture() {
+void Resources::loadAboutMapTexture() {
 	//加载纹理
 	bool src_flag = false;
 	if (!Box::loadTexture(cfg::BOX_PATH, cfg::BOX_ON_TARGET_PATH)) {
@@ -39,4 +39,11 @@ void Resources::loadAllAudio() {
 	//初始化音效
 	if (!Game::getWarningBuffer().loadFromFile(cfg::WARNING_PATH)) { std::cerr << "警告提示音加载失败" << std::endl; }
 	else { Game::getWarningSound() = std::make_unique<sf::Sound>(Game::getWarningBuffer()); }
+}
+
+void Resources::loadVictoryScreenTexture() {
+	if (!Game::getVictoryTexture().loadFromFile(cfg::VICTORY_SCREEN)) {
+		std::cerr << "关卡胜利界面纹理加载失败" << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
 }

@@ -24,6 +24,9 @@ private:
 	static sf::Music bgm_music;
 	static sf::SoundBuffer warning_buffer;
 	static std::unique_ptr<sf::Sound> warning_sound;
+	//关卡胜利界面纹理
+	static sf::Texture victory_tex;
+	static std::unique_ptr<sf::Sprite> victory_sprite;
 public:
 	Game();
 	void run();
@@ -54,4 +57,7 @@ public:
 	static sf::Music& getBGM() { return bgm_music; }
 	static sf::SoundBuffer& getWarningBuffer() { return warning_buffer; }
 	static std::unique_ptr<sf::Sound>& getWarningSound() { return warning_sound; }
+	//传递关卡胜利界面资源
+	static sf::Texture& getVictoryTexture() { return victory_tex; }
+	static std::unique_ptr<sf::Sprite>& getVictorySprite() { return victory_sprite; }	//只能移动构造或传引用，不能拷贝构造
 };

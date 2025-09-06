@@ -6,6 +6,7 @@ class PlayState :public State {
 private:
 	Map map;
 	sf::Clock ignoreMouseTimer;
+	bool shouleReloadWindow{ true };
 public:
 	PlayState(Game& game, bool isGamePaused);
 

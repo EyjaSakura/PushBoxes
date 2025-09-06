@@ -1,4 +1,5 @@
 #pragma once
+#include<math.h>
 
 enum Direction { UP, RIGHT, DOWN, LEFT };
 
@@ -17,5 +18,9 @@ struct Position {
 		case LEFT:	return { x,y - 1 };
 		default:	return *this;
 		}
+	}
+
+	int manhattan(Position goal) {
+		return abs(this->x - goal.x) + abs(this->y - goal.y);
 	}
 };

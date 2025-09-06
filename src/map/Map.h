@@ -13,7 +13,6 @@ class Map {
 private:
 	int map_rows, map_cols, map_num{ -1 };
 	std::vector<char> map;
-	std::vector<Position> targets;
 	std::vector<Box> boxes;
 	Player player;
 	std::vector<sf::Sprite> target_sprites;
@@ -43,9 +42,12 @@ public:
 	int getMapNum()const;
 	Position getPlayerPos()const { return player.getPosition(); }
 
-	//≤‚ ‘”√
 	std::vector<char> getMap()const { return map; }
+	void setMap(const std::vector<char>& map_) { map = map_; }
+
+	//≤‚ ‘”√
 	void showMap() {
+		std::cout << "now_map:" << std::endl;
 		for (int i = 0; i < map_rows; ++i) {
 			for (int j = 0; j < map_cols; ++j) {
 				std::cout << map[i * map_cols + j] << " ";

@@ -3,5 +3,5 @@
 #include<vector>
 
 namespace FindPath {
-	bool find_path_DFS(Map&, const Position&, const Position&, std::vector<Position>&);
+	bool find_path_DFS(Map&, const Position&, const Position&, std::vector<Direction>&);
 }

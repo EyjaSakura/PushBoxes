@@ -11,7 +11,6 @@ void Map::loadMapFromFile(std::string filePath, int mapNum) {
 	}
 
 	map.clear();
-	targets.clear();
 	boxes.clear();
 	target_sprites.clear();
 	wall_sprites.clear();
@@ -34,31 +33,21 @@ void Map::loadMapFromFile(std::string filePath, int mapNum) {
 			case cfg::BOX_CHAR:
 				boxes.push_back(Box(rowNum, colNum, false));
 				break;
-			case cfg::TARGET_CHAR:
-				targets.push_back({ rowNum, colNum });
-				break;
 			case cfg::BOX_ON_TARGET_CHAR:
 				boxes.push_back(Box(rowNum, colNum, true));
-				targets.push_back({ rowNum, colNum });
 				break;
 			case cfg::PLAYER_ON_TARGET_CHAR:
 				player.setPosition({ rowNum, colNum }, true);
-				targets.push_back({ rowNum, colNum });
 				break;
 			}
-			if (mapContent == cfg::WALL_CHAR) {
-				map.push_back(cfg::WALL_CHAR);
-			}
-			else {
-				map.push_back(cfg::SPACE_CHAR);
-			}
+			map.push_back(mapContent);
 			++colNum;
 		}
 		++rowNum;
 	}
 
-	//绘制静态元素
-	/*for (int i = 0; i < map_rows; ++i) {
+	//加载静态元素
+	for (int i = 0; i < map_rows; ++i) {
 		for (int j = 0; j < map_cols; ++j) {
 			Position pos = { i,j };
 			char ele = map[i * map_cols + j];
@@ -68,23 +57,18 @@ void Map::loadMapFromFile(std::string filePath, int mapNum) {
 				wall_sprite.setPosition({ j * 100.f,i * 100.f });
 				wall_sprites.push_back(wall_sprite);
 			}
-			else if (ele != cfg::UNDEFINE_CHAR) {
+			else if (!(ele == cfg::UNDEFINE_CHAR)) {
 				sf::Sprite space_sprite(space_tex);
 				space_sprite.setPosition({ j * 100.f,i * 100.f });
 				space_sprites.push_back(space_sprite);
-
-				for (const auto& target : targets) {
-					if (target == pos) {
-						sf::Sprite target_sprite(target_tex);
-						target_sprite.setPosition({ j * 100.f,i * 100.f });
-						target_sprites.push_back(target_sprite);
-						break;
-					}
+				if (ele == cfg::TARGET_CHAR || ele == cfg::BOX_ON_TARGET_CHAR || ele == cfg::PLAYER_ON_TARGET_CHAR) {
+					sf::Sprite target_sprite(target_tex);
+					target_sprite.setPosition({ j * 100.f,i * 100.f });
+					target_sprites.push_back(target_sprite);
 				}
 			}
-
 		}
-	}*/
+	}
 
 }
 void Map::draw(sf::RenderWindow& window) {
@@ -103,19 +87,6 @@ void Map::draw(sf::RenderWindow& window) {
 	}
 	window.draw(player.getSprite());
 
-	// 调试信息
-	//static int frameCount = 0;
-	//if (frameCount % 120 == 0) {
-	//	for (const auto& box : boxes) {
-	//		cout << "箱子位置：(" << box.getPosition().x << ", " << box.getPosition().y << ")" << endl;
-	//	}
-	//	cout << "Sprites: " << target_sprites.size() << " targets, "
-	//		<< wall_sprites.size() << " walls, "
-	//		<< space_sprites.size() << " spaces, "
-	//		<< boxes.size() << " boxes" << endl;
-	//}
-	//frameCount++;
-
 }
 
 bool Map::isSpace(Position pos) {
@@ -131,12 +102,10 @@ bool Map::isWall(Position pos) {
 	return map[pos.x * map_cols + pos.y] == cfg::WALL_CHAR;
 }
 bool Map::isOnTarget(Position pos) {
-	for (auto& target : targets) {
-		if (target == pos) {
-			return true;
-		}
+	if (pos.x < 0 || pos.x >= map_rows || pos.y < 0 || pos.y >= map_cols) {
+		return true;
 	}
-	return false;
+	return map[pos.x * map_cols + pos.y] == cfg::TARGET_CHAR || map[pos.x * map_cols + pos.y] == cfg::BOX_ON_TARGET_CHAR || map[pos.x * map_cols + pos.y] == cfg::PLAYER_ON_TARGET_CHAR;
 }
 Box* Map::getBoxAt(Position pos) {
 	for (auto& box : boxes) {
@@ -147,16 +116,23 @@ Box* Map::getBoxAt(Position pos) {
 	return nullptr;
 }
 void Map::movePlayer(Direction dir) {
+	Position oldPlayerPos = player.getPosition();
 	Position newPlayerPos = player.getPosition().move(dir);
 	if (isWall(newPlayerPos)) { return; };
 	Box* box = getBoxAt(newPlayerPos);
 	if (box) {
+		Position oldBoxPos = box->getPosition();
 		Position newBoxPos = box->getPosition().move(dir);
 		if (isWall(newBoxPos) || getBoxAt(newBoxPos)) { return; };
 		box->setPosition(newBoxPos);
 		box->setOnTarget(isOnTarget(newBoxPos));
+		map[newBoxPos.x * this->getCols() + newBoxPos.y] = (isOnTarget(newBoxPos) ? cfg::BOX_ON_TARGET_CHAR : cfg::BOX_CHAR);
+		//oldBoxPos可以不处理
+		map[oldBoxPos.x * this->getCols() + oldBoxPos.y] = (isOnTarget(oldBoxPos) ? cfg::TARGET_CHAR : cfg::SPACE_CHAR);
 	}
 	player.setPosition(newPlayerPos, isOnTarget(newPlayerPos));
+	map[newPlayerPos.x * this->getCols() + newPlayerPos.y] = (isOnTarget(newPlayerPos) ? cfg::PLAYER_ON_TARGET_CHAR : cfg::PLAYER_CHAR);
+	map[oldPlayerPos.x * this->getCols() + oldPlayerPos.y] = (isOnTarget(oldPlayerPos) ? cfg::TARGET_CHAR : cfg::SPACE_CHAR);
 }
 bool Map::gameOver() {
 	if (mapLoadFailedFlag) { return true; }
@@ -179,7 +155,6 @@ void Map::changeMapEle(Position pos, char changeChar) {
 	}
 	map[pos.x * map_cols + pos.y] = changeChar;
 }
-
 
 int Map::getRows()const { return map_rows; }
 int Map::getCols()const { return map_cols; }

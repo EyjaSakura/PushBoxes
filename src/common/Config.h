@@ -18,12 +18,13 @@ namespace cfg {
 	inline const std::string SPACE_PATH = RES + "/image/space.jpg";
 	//inline const std::string UNDEFINE_PATH = RES + "/image/undefine.jpg";
 	//inline const std::string DFS_PATH = RES + "/image/dfs.jpg";
+	inline const std::string VICTORY_SCREEN = RES + "/image/victory.jpg";
 
 	// µÿÕº
 	inline const std::string MAP_DIR = RES + "/maps";
 
 	// “Ù∆µ
-	inline const std::string BGM_PATH = RES + "/audio/bgm.flac";
+	inline const std::string BGM_PATH = RES + "/audio/bgm.MP3";
 	inline const std::string WARNING_PATH = RES + "/audio/warning.wav";
 
 	// ◊÷ÃÂ
