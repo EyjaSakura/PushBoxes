@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\states">
+      <UniqueIdentifier>{fc9f376e-3aae-4c0b-b16a-054300f3e5b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\game">
+      <UniqueIdentifier>{4c9e80f1-c17e-4087-85e0-cb018d2ffca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\map">
+      <UniqueIdentifier>{1574a2da-9be0-444e-b46b-5f9623eb6659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\states">
+      <UniqueIdentifier>{42a710c5-6c2c-4930-86ac-cfd89e9a77cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\game">
+      <UniqueIdentifier>{65e85917-dfc7-4097-abaf-b7a6fafff307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\map">
+      <UniqueIdentifier>{f885ccfd-ec31-4d89-adab-6560c9321b64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui">
+      <UniqueIdentifier>{bfdd8eb7-6c0b-40a8-89a6-89a4e5c43961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui">
+      <UniqueIdentifier>{236d2dac-7799-460a-8100-5bc7e322a91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\common">
+      <UniqueIdentifier>{236e6b04-8b51-4ea7-882f-21c3b1d49ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\things">
+      <UniqueIdentifier>{e7660b96-a204-45ca-a115-f11f3f77fd08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\things\player">
+      <UniqueIdentifier>{99b5955a-f569-424d-8013-074859c35819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\things\box">
+      <UniqueIdentifier>{abae4357-4bbf-453c-9cb4-7562cd3f8037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\things">
+      <UniqueIdentifier>{c8578c78-dabd-47ed-940d-0bfc7fa75f88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\things\player">
+      <UniqueIdentifier>{e19b83d7-48a8-4c2b-9653-0ad4519ea01d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\things\box">
+      <UniqueIdentifier>{02ba81ee-0bbb-446e-9973-eb663aa46791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\common">
+      <UniqueIdentifier>{e8db7180-ebc2-4108-b8c4-1c31d1ad3b49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\debug">
+      <UniqueIdentifier>{4f817a92-725e-4a63-8684-56a21a9dcc2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\release">
+      <UniqueIdentifier>{ff35b930-c902-4f0c-ba28-f2781c16bbf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\utils">
+      <UniqueIdentifier>{3c6718d2-c3e6-41e4-a01d-a3943a2d64d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\utils\pathFinding">
+      <UniqueIdentifier>{6763d060-d2db-4565-ac97-6180db4d8530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\utils">
+      <UniqueIdentifier>{ac586ed3-061b-48cb-b9c6-48bc3d0e5a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\utils\pathFinding">
+      <UniqueIdentifier>{04a1dfdc-75a7-468b-93dc-2b2195cf6184}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\states\PauseState.cpp">
+      <Filter>源文件\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\states\PlayState.cpp">
+      <Filter>源文件\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\states\StartState.cpp">
+      <Filter>源文件\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\states\VictoryState.cpp">
+      <Filter>源文件\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Game.cpp">
+      <Filter>源文件\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map\Map.cpp">
+      <Filter>源文件\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\Button.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\things\box\Box.cpp">
+      <Filter>源文件\things\box</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\MapList.cpp">
+      <Filter>源文件\common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\things\player\Player.cpp">
+      <Filter>源文件\things\player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\Resources.cpp">
+      <Filter>源文件\common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\pathFinding\FindPath.cpp">
+      <Filter>源文件\utils\pathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\MyMouse.cpp">
+      <Filter>源文件\common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\states\State.h">
+      <Filter>头文件\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Game.h">
+      <Filter>头文件\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map\Map.h">
+      <Filter>头文件\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\Button.h">
+      <Filter>头文件\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\Position.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\things\box\Box.h">
+      <Filter>头文件\things\box</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\Config.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\MapList.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\Resources.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\states\PauseState.h">
+      <Filter>头文件\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\states\PlayState.h">
+      <Filter>头文件\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\states\StartState.h">
+      <Filter>头文件\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\states\VictoryState.h">
+      <Filter>头文件\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\pathFinding\FindPath.h">
+      <Filter>头文件\utils\pathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\MyMouse.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\things\player\Player.h">
+      <Filter>头文件\things\player</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="x64\Debug\sfml-window-d-3.dll">
+      <Filter>资源文件\debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Debug\sfml-system-d-3.dll">
+      <Filter>资源文件\debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Debug\sfml-network-d-3.dll">
+      <Filter>资源文件\debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Debug\sfml-graphics-d-3.dll">
+      <Filter>资源文件\debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Debug\sfml-audio-d-3.dll">
+      <Filter>资源文件\debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Release\sfml-system-3.dll">
+      <Filter>资源文件\release</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Release\sfml-window-3.dll">
+      <Filter>资源文件\release</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Release\sfml-network-3.dll">
+      <Filter>资源文件\release</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Release\sfml-graphics-3.dll">
+      <Filter>资源文件\release</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="x64\Release\sfml-audio-3.dll">
+      <Filter>资源文件\release</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+</Project>
